@@ -58,7 +58,7 @@ export async function POST(req: Request) {
     const anmerkungen = fallback(data.notes, "keine");
 
     // ---------------- E-Mail-Inhalt ----------------
-    const subject = "Eva hat euer Date bestätigt";
+    const subject = "Eva hat euer Treffen bestätigt";
 
     const text = [
       "Eva hat das Formular abgeschickt.",
@@ -78,7 +78,7 @@ export async function POST(req: Request) {
 
     const resend = new Resend(apiKey);
     const { error } = await resend.emails.send({
-      from: "Date <onboarding@resend.dev>",
+      from: "Treffen <onboarding@resend.dev>",
       to,
       subject,
       text,
@@ -119,7 +119,7 @@ function renderHtml(v: {
     <div style="max-width:560px; margin:0 auto; background:#ffffff; border-radius:24px; padding:32px; box-shadow:0 10px 40px rgba(246,85,139,0.18);">
       <div style="text-align:center; margin-bottom:24px;">
         <div style="font-size:32px; margin-bottom:4px;">💌</div>
-        <h1 style="margin:0; color:#dc3b76; font-size:22px; font-weight:600;">Eva hat euer Date bestätigt</h1>
+        <h1 style="margin:0; color:#dc3b76; font-size:22px; font-weight:600;">Eva hat euer Treffen bestätigt</h1>
       </div>
       <table style="width:100%; border-collapse:collapse;">
         ${row("Aktivität", v.activity)}
@@ -128,7 +128,7 @@ function renderHtml(v: {
         ${row("Anmerkungen", v.anmerkungen, true)}
       </table>
       <p style="margin-top:24px; font-size:12px; color:#a56680; text-align:center;">
-        Automatisch generiert von deiner Date-Seite.
+        Automatisch generiert von deiner Treffen-Seite.
       </p>
     </div>
   </div>

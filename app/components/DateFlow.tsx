@@ -12,16 +12,16 @@ const TEXT = {
   intro1:
     "Ich hoffe, du hast dich auf der Arbeit nicht gelangweilt — dafür hab ich dir hier was gebaut. Hat leider etwas länger gedauert…",
   intro2:
-    "Also: damit du nicht mehr absagen kannst, machen wir jetzt hier unser Date aus.",
+    "Also: damit du nicht mehr absagen kannst, machen wir jetzt hier unser Treffen aus.",
   step1Title: "Was machen wir?",
   step2Title: "Wann passt's dir?",
   step3Title: "Und ein Ausweichtermin?",
   step3Sub:
     "Falls wieder mal was dazwischenkommt (wir kennen das ja…).",
   step4Title: "Noch was?",
-  submitLabel: "Date bestätigen",
+  submitLabel: "Treffen bestätigen",
   confirmationP1:
-    "Somit hast du das Date bestätigt. Vielen Dank für Ihre Zeit. Bei Änderungen oder Nichtkönnen bitte frühzeitig Bescheid geben.",
+    "Somit hast du das Treffen bestätigt. Vielen Dank für Ihre Zeit. Bei Änderungen oder Nichtkönnen bitte frühzeitig Bescheid geben.",
   confirmationP2Before: "Bei Nichterscheinen wird eine Buße von ",
   confirmationHighlight: "10.000 €",
   confirmationP2After: " fällig und zieht rechtliche Konsequenzen nach sich.",
@@ -193,7 +193,7 @@ export default function DateFlow() {
           <div className="text-center">
             <div className="mx-auto mb-4 h-16 w-16 animate-floaty text-4xl">💌</div>
             <h2 className="font-display text-2xl font-semibold text-rose-800">
-              Date bestätigt
+              Treffen bestätigt
             </h2>
             <div className="mt-5 space-y-3 text-left text-sm leading-relaxed text-rose-800/80">
               <p>{TEXT.confirmationP1}</p>
