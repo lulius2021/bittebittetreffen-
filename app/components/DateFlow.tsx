@@ -118,10 +118,12 @@ export default function DateFlow() {
               />
             </div>
           </div>
-          <NextButton
-            disabled={!activity || (activity === "Eigener Vorschlag" && !customActivity.trim())}
-            onClick={() => setStage("step2")}
-          />
+          <div className="mt-8">
+            <NextButton
+              disabled={!activity || (activity === "Eigener Vorschlag" && !customActivity.trim())}
+              onClick={() => setStage("step2")}
+            />
+          </div>
         </StepShell>
       )}
 
