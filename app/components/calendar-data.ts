@@ -17,6 +17,10 @@ export const SILENT_BLOCKED = new Set<string>([
   "2026-09-26",
 ]);
 
+// Letzter Tag mit Berufsschule (inklusive). Ab dem Folgetag greift die
+// Berufsschul-Logik (Mo–Do blockiert, Fr Vormittags blockiert) nicht mehr.
+export const BERUFSSCHULE_LAST_DAY = "2026-10-04";
+
 export type TimeSlot = "Vormittags" | "Nachmittags" | "Abends";
 export const TIME_SLOTS: TimeSlot[] = ["Vormittags", "Nachmittags", "Abends"];
 
@@ -42,8 +46,9 @@ export function isInRange(iso: string): boolean {
   return iso >= RANGE_START && iso <= RANGE_END;
 }
 
-// Mo–Do (1..4): Berufsschule ganztägig
+// Mo–Do (1..4): Berufsschule ganztägig — aber nur bis BERUFSSCHULE_LAST_DAY.
 export function isBerufsschule(iso: string): boolean {
+  if (iso > BERUFSSCHULE_LAST_DAY) return false;
   const wd = isoWeekday(iso);
   return wd >= 1 && wd <= 4;
 }
@@ -57,10 +62,12 @@ export function isFullyBlocked(iso: string): boolean {
 }
 
 // Verfügbare Zeit-Slots an einem (bereits wählbaren) Tag.
-// Freitag (5): Vormittags gesperrt.
+// Freitag (5): Vormittags gesperrt — aber nur bis BERUFSSCHULE_LAST_DAY.
 export function availableSlots(iso: string): TimeSlot[] {
   const wd = isoWeekday(iso);
-  if (wd === 5) return ["Nachmittags", "Abends"];
+  if (wd === 5 && iso <= BERUFSSCHULE_LAST_DAY) {
+    return ["Nachmittags", "Abends"];
+  }
   return [...TIME_SLOTS];
 }
 
