@@ -64,7 +64,7 @@ export default function CalendarPicker({ date, slot, onChange }: Props) {
             type="button"
             disabled={!canGoPrev()}
             onClick={prevMonth}
-            className="rounded-full px-3 py-1 text-rose-700 disabled:opacity-30"
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-rose-100 text-2xl font-bold text-rose-700 shadow-sm transition hover:bg-rose-200 active:scale-95 disabled:cursor-not-allowed disabled:opacity-30"
             aria-label="Vorheriger Monat"
           >
             ‹
@@ -76,7 +76,7 @@ export default function CalendarPicker({ date, slot, onChange }: Props) {
             type="button"
             disabled={!canGoNext()}
             onClick={nextMonth}
-            className="rounded-full px-3 py-1 text-rose-700 disabled:opacity-30"
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-rose-100 text-2xl font-bold text-rose-700 shadow-sm transition hover:bg-rose-200 active:scale-95 disabled:cursor-not-allowed disabled:opacity-30"
             aria-label="Nächster Monat"
           >
             ›
