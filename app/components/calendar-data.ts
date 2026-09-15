@@ -11,6 +11,12 @@
 export const RANGE_START = "2026-09-15"; // heute
 export const RANGE_END = "2026-10-30";
 
+// Zusätzlich stumm gesperrte Einzeltage (kein sichtbarer Grund).
+export const SILENT_BLOCKED = new Set<string>([
+  "2026-09-25",
+  "2026-09-26",
+]);
+
 export type TimeSlot = "Vormittags" | "Nachmittags" | "Abends";
 export const TIME_SLOTS: TimeSlot[] = ["Vormittags", "Nachmittags", "Abends"];
 
@@ -45,6 +51,7 @@ export function isBerufsschule(iso: string): boolean {
 // Tag komplett gesperrt (nicht anklickbar).
 export function isFullyBlocked(iso: string): boolean {
   if (!isInRange(iso)) return true;
+  if (SILENT_BLOCKED.has(iso)) return true;
   if (isBerufsschule(iso)) return true;
   return false;
 }
