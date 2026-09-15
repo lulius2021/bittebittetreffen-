@@ -46,7 +46,10 @@ export default function LockScreen({ onUnlock }: { onUnlock: () => void }) {
         <h1 className="text-center font-display text-3xl font-semibold text-rose-700">
           Hallo Eva
         </h1>
-        <p className="mt-3 text-center text-rose-800/80">
+        <p className="mt-3 text-center text-sm text-rose-700/70">
+          Um zu wissen ob du es wirklich bist, eine Frage:
+        </p>
+        <p className="mt-2 text-center text-rose-800/80">
           Wie oft haben wir uns schon in echt gesehen?
         </p>
 
