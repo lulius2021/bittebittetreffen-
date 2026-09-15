@@ -20,8 +20,11 @@ const TEXT = {
     "Falls wieder mal was dazwischenkommt (wir kennen das ja…).",
   step4Title: "Noch was?",
   submitLabel: "Date bestätigen",
-  confirmation:
-    "Somit hast du das Date bestätigt. Vielen Dank für Ihre Zeit. Bei Änderungen oder Nichtkönnen bitte frühzeitig Bescheid geben.\n\nBei Nichterscheinen wird eine Buße von 10.000 € fällig und zieht rechtliche Konsequenzen nach sich.",
+  confirmationP1:
+    "Somit hast du das Date bestätigt. Vielen Dank für Ihre Zeit. Bei Änderungen oder Nichtkönnen bitte frühzeitig Bescheid geben.",
+  confirmationP2Before: "Bei Nichterscheinen wird eine Buße von ",
+  confirmationHighlight: "10.000 €",
+  confirmationP2After: " fällig und zieht rechtliche Konsequenzen nach sich.",
 };
 
 const ACTIVITIES = [
@@ -192,8 +195,15 @@ export default function DateFlow() {
             <h2 className="font-display text-2xl font-semibold text-rose-800">
               Date bestätigt
             </h2>
-            <div className="mt-5 whitespace-pre-line text-left text-sm leading-relaxed text-rose-800/80">
-              {TEXT.confirmation}
+            <div className="mt-5 space-y-3 text-left text-sm leading-relaxed text-rose-800/80">
+              <p>{TEXT.confirmationP1}</p>
+              <p>
+                {TEXT.confirmationP2Before}
+                <span className="text-lg font-extrabold tracking-tight text-rose-600">
+                  {TEXT.confirmationHighlight}
+                </span>
+                {TEXT.confirmationP2After}
+              </p>
             </div>
 
             {/* Kleine Zusammenfassung als Ausklang */}
